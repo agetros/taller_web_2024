@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from .models import Post, PostForm
+from .models import Post
+from .forms import PostForm
+
+
+def index(request):
+    return render(request, "website/base.html")
 
 
 # Create your views here.
@@ -22,8 +27,8 @@ def publicaciones(request):
             if form.is_valid():
                 if request.POST.get("editing") == "True":
                     post = Post.objects.get(id=request.POST.get("id"))
-                    post.titulo = form.cleaned_data["titulo"]
-                    post.contenido = form.cleaned_data["contenido"]
+                    post.title = form.cleaned_data["titulo"]
+                    post.content = form.cleaned_data["contenido"]
                     post.save()
                     editing = False
                     form = PostForm()

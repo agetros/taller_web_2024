@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <main>
+        <nav class="py-2 bg-dark border-bottom">
+            <div class="container d-flex flex-wrap">
+                <ul class="nav me-auto"></ul>
+                <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 text-white">Iniciar sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {% block categories %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% block banner %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% block feature %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-9">
+                </div>
+                <div class="col col-md-3">
+                </div>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    {% bootstrap_javascript %}
+</body>
+</html>
